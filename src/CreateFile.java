@@ -1,44 +1,38 @@
 import java.io.Console;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class CreateFile {
-    public static void newContact() {
     
-        File file = new File("ContactList.xml");
-
-        try {
-        boolean value = file.createNewFile();
-        if (value) {
-            System.out.println("New Contacts File was created.");
-        }
-        else {
-            System.out.println("Contacts file already exists.");
-        }
-        }
-        catch(Exception e) {
-        e.getStackTrace();
-        }
-             
-    }
-    public static void writeContact() {
+    public static void newContact() {
         Console c = System.console();
-        System.out.println("Write your contact-list entry:");
-        String contact= c.readLine();
+        
         try {
-        // Creates a Writer using FileWriter
-        FileWriter output = new FileWriter("ContactList.xml");
-
-        // Writes the program to file
-        output.write(contact);
-        System.out.println("Data is written to the file.");
-
-        // Closes the writer
-        output.close();
+        File contacts = new File("ContactList.csv");
+        
+        
+        if (contacts.exists()) {
+            System.out.println("Contacts file already exists.");
+        
+        } else {
+            
+            contacts.createNewFile();
+            
+            FileWriter writer = new FileWriter(contacts, true); //Open writer for the created file
+            BufferedWriter bw = new BufferedWriter(writer);
+            
+            bw.write("personal id, first name, last name, phone number, address, e-mail,"); //Write the initial headers to the contacts-file
+            
+            bw.close();
+           
+            System.out.println("Created a new contacts file with headers.");
         }
-        catch (Exception e) {
-         e.getStackTrace();
-        }
-             
-    }
-
+        
+        } catch(Exception e) {
+                e.getStackTrace();
+        }   
+        
+    } 
 }

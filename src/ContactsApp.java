@@ -1,5 +1,10 @@
 import java.io.Console;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class ContactsApp {
     public static void main (String [] args) {
         Console c = System.console();
@@ -10,7 +15,7 @@ public class ContactsApp {
         System.out.println("[delete] press 4 to delete an entry");
         String command = Input.commandInput(Integer.parseInt(c.readLine()));
             System.out.println(command);
-        CreateFile.writeContact();
+        
     }
 
 
