@@ -61,12 +61,16 @@ public class CreateFile {
     public static void writeContact() {
         Console c = System.console();
 
-        System.out.println("Write your contact-list entry. Separate the entries with commas:");
+        System.out.println("Write your contact-list entry. Separate the values with commas:");
         while (0 < 1) {
-        System.out.println("personal id, first name, last name, phone number,address, e-mail");
+        System.out.println
+        ("personal id, first name, last name, phone number,address, e-mail");
         String contact = c.readLine();
-        String regex = "^[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+$";
-        if (Pattern.matches(regex, contact)) {
+        //looks for 4 and 6 numbers separated by A or -, Any characters, any characters,
+        //+ and ten numbers, any char and one number, any characters @ and dot.
+        String validate ="^\\s*\\d{6}(A|-)\\d{4},\\s*[A-Za-z]+,\\s*[A-Za-z]+,\\s*\\+\\d{10},(\\s*[A-Za-z]+\\s*\\d+,)*(\\s*[A-Za-z]+@[A-Za-z]+\\.[a-zA-Z]+)*$";
+
+        if (Pattern.matches(validate, contact)) {
             try {
             // Creates a Writer using FileWriter
             FileWriter writer = new FileWriter("ContactList.csv", true);
@@ -83,6 +87,7 @@ public class CreateFile {
             break;
         } else {
             System.out.println("Please enter MAX 6 comma separated values");
+            System.out.println("Finnish social security number and Phone number in international format (+358)");
         }
         }
     }

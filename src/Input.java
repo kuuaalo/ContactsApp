@@ -8,7 +8,7 @@ import java.io.Console;
 * It can either call methods, stop the program or return an error message.
 * 
 * @author Aalo Kuuspalo
-* @param x the argument who is compared to numbers.
+* @param x the argument which is compared to strings.
 * @return String with a message for the user.
 */
 public class Input {
@@ -23,23 +23,23 @@ public class Input {
     * Returns a message, or an error if argument is not
     * a number from 1-5.
     */
-    public static String commandInput(int x) {
+    public static String commandInput(String x) {
         Console c = System.console();
 
-        if (x == 1) {
+        if (x.equals("1")) {
             CreateFile.newContact();
             CreateFile.writeContact();
             return NEXT_CONTACT;
-        } else if (x == 2) {
+        } else if (x.equals("2")) {
             ReadFile.readContact();
             return NEXT_CONTACT;
-        } else if (x == 3) {
+        } else if (x.equals("3")) {
             ReadFile.editContact();
             return NEXT_CONTACT;
-        } else if (x == 4) {
+        } else if (x.equals("4")) {
             ReadFile.deleteContact();
             return NEXT_CONTACT;
-        } else if (x == 5) {
+        } else if (x.equals("5")) {
             return QUIT;
         } else {
             return ERROR;

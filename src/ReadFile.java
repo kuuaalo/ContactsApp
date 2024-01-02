@@ -47,7 +47,7 @@ public class ReadFile {
     * Reads a file and writes user input in it.
     *
     * Reads a specified file and prints all of the content on it
-    * to the System console. Takes user input and writes it in to the file.
+    * to the System console. Takes user input and writes it on the file.
     */
     public static void editContact() {
 
@@ -72,8 +72,8 @@ public class ReadFile {
         while (0 < 1) {
         System.out.println("personal id, first name, last name, phone number,address, e-mail");
         String contact = c.readLine();
-        String regex = "^[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+$";
-            if (Pattern.matches(regex, contact)) {
+        String validate ="^\\s*\\d{6}(A|-)\\d{4},\\s*[A-Za-z]+,\\s*[A-Za-z]+,\\s*\\+\\d{10},(\\s*[A-Za-z]+\\s*\\d+,)*(\\s*[A-Za-z]+@[A-Za-z]+\\.[a-zA-Z]+)*$";
+            if (Pattern.matches(validate, contact)) {
                 entries.set(y,contact);
                 System.out.println(entries.get(y));
 
@@ -92,6 +92,7 @@ public class ReadFile {
             
             } else {
                 System.out.println("Please enter MAX 6 comma separated values");
+                System.out.println("Finnish social security number and Phone number in international format (+358)");
             }
         }
 

@@ -26,7 +26,7 @@ public class ContactsApp {
         System.out.println("[update] choose 3 to update an entry");
         System.out.println("[delete] choose 4 to delete an entry");
         System.out.println("[exit] choose 5 to exit program");
-        String command = Input.commandInput(Integer.parseInt(c.readLine()));
+        String command = Input.commandInput(c.readLine());
             System.out.println(command);
             if (command.equals("Goodbye")) {
                 break;
