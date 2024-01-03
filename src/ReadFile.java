@@ -72,7 +72,7 @@ public class ReadFile {
         while (0 < 1) {
         System.out.println("personal id, first name, last name, phone number,address, e-mail");
         String contact = c.readLine();
-        String validate ="^\\s*\\d{6}(A|-)\\d{4},\\s*[A-Za-z]+,\\s*[A-Za-z]+,\\s*\\+\\d{10},(\\s*[A-Za-z]+\\s*\\d+,)*(\\s*[A-Za-z]+@[A-Za-z]+\\.[a-zA-Z]+)*$";
+        String validate ="^\\s*\\d{6}(A|-).{4},\\s*[A-Za-z]+,\\s*[A-Za-z]+,\\s*\\+\\d{7,13},(\\s*[A-Za-z]+\\s*\\d+,)*(\\s*.+[A-Za-z]+@[A-Za-z]+\\.[A-Za-z]+)*$";
             if (Pattern.matches(validate, contact)) {
                 entries.set(y,contact);
                 System.out.println(entries.get(y));
@@ -125,7 +125,6 @@ public class ReadFile {
         int y = Integer.parseInt(c.readLine());
 
         entries.remove(y);
-        System.out.println(entries);
 
         FileWriter writer = new FileWriter("ContactList.csv");
         BufferedWriter bw = new BufferedWriter(writer);

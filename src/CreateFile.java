@@ -68,7 +68,7 @@ public class CreateFile {
         String contact = c.readLine();
         //looks for 4 and 6 numbers separated by A or -, Any characters, any characters,
         //+ and ten numbers, any char and one number, any characters @ and dot.
-        String validate ="^\\s*\\d{6}(A|-)\\d{4},\\s*[A-Za-z]+,\\s*[A-Za-z]+,\\s*\\+\\d{10},(\\s*[A-Za-z]+\\s*\\d+,)*(\\s*[A-Za-z]+@[A-Za-z]+\\.[a-zA-Z]+)*$";
+        String validate ="^\\s*\\d{6}(A|-).{4},\\s*[A-Za-z]+,\\s*[A-Za-z]+,\\s*\\+\\d{7,13},(\\s*[A-Za-z]+\\s*\\d+,)*(\\s*.+[A-Za-z]+@[A-Za-z]+\\.[A-Za-z]+)*$";
 
         if (Pattern.matches(validate, contact)) {
             try {

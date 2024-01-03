@@ -14,7 +14,7 @@ import java.io.Console;
 public class Input {
     public static final String NEXT_CONTACT = "What would you like to do next?";
     public static final String QUIT = "Goodbye";
-    public static final String ERROR = "Please enter a valid number from 1-4";
+    public static final String ERROR = "Please enter a valid number from 1-5";
     /**
     * Calls a method based on input and returns a message.
     *
